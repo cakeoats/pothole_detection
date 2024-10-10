@@ -1,0 +1,75 @@
+.mytitle {
+    width: 100%;
+    height: 250px;
+    color: white;
+
+    background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cdn.pixabay.com/photo/2023/06/07/21/52/highway-8048327_1280.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.mytitle>button {
+    width: 200px;
+    height: 40px;
+
+    background-color: transparent;
+    color: white;
+
+    border-radius: 50px;
+    border: 2px solid white;
+
+    margin-top: 10px;
+}
+
+.mytitle>button:hover {
+    border: 3px solid white;
+}
+
+.mycards {
+    margin: 20px auto 0px auto;
+    width: 95%;
+    max-width: 1300px;
+}
+
+.mycards img {
+    width: auto;
+    height: 350px;
+    object-fit: contain;
+}
+
+.mycomment {
+    color: gray;
+
+}
+
+.mypost {
+    width: 95%;
+    max-width: 700px;
+    margin: 60px auto 0px auto;
+    padding: 20px;
+    box-shadow: 0px 0px 3px 0px gray;
+    display: none;
+}
+
+.mybtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mybtns>button {
+    margin-right: 10px;
+}
+
+.card-title {
+    font-style: oblique;
+    font-weight: bold;
+}
