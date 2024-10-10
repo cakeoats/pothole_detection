@@ -5,7 +5,7 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="#">Jasamarga</a>
+            <a href="#"></a>
         </div>
     </div>
     <ul class="sidebar-nav">

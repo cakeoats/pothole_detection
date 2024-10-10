@@ -25,6 +25,7 @@ class AuthController extends Controller
 
         $credentials = $request->only('username', 'password');
 
+        // Untuk inspektor
         if (Auth::guard('inspektor')->attempt($credentials)) {
             $user = Auth::guard('inspektor')->user();
             session(['user' => $user]);
@@ -34,7 +35,6 @@ class AuthController extends Controller
                 return redirect()->route('login')->withErrors(['login' => 'Your account has not been approved yet.']);
             }
 
-            
             if ($user->status == 'rejected') {
                 Auth::guard('inspektor')->logout();
                 return redirect()->route('login')->withErrors(['login' => 'Your account is rejected by admin contact admin for more information.']);
@@ -51,11 +51,11 @@ class AuthController extends Controller
             return redirect()->intended(route('dashboard'));
         }
 
-        //admin
+        // Untuk admin
         if (Auth::guard('admin')->attempt($credentials)) {
             $user = Auth::guard('admin')->user();
             session(['user' => $user]);
-            
+
             return redirect()->intended(route('dashboard'));
         }   
 
@@ -68,21 +68,23 @@ class AuthController extends Controller
         session()->flush();
         return redirect()->route('login');
     }
-    
-    function register()
+
+    public function register()
     {
         return view('auth/register');
     }
 
-    function registerPost(Request $request){
+    public function registerPost(Request $request)
+    {
         $request->validate([
-            "username"=> "required|unique:inspektor",
-            "fullname"=> "required",
-            "division"=> "required",
-            "email"=> "required|email|unique:inspektor",
-            "password"=> "required|min:8",
+            "username" => "required|unique:inspektor",
+            "fullname" => "required",
+            "division" => "required",
+            "email" => "required|email|unique:inspektor",
+            "password" => "required|min:8",
         ]);
 
+        // Membuat instance pengguna baru (inspektor atau admin)
         $user = new inspektor();
         $user->username = $request->username;
         $user->fullname = $request->fullname;
@@ -91,16 +93,17 @@ class AuthController extends Controller
         $user->accepted_by = "NULL";
         $user->rejected_by = "NULL";
         $user->deleted_by = "NULL";
-        
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        if ($user->save()) {
-            return redirect(route(name:"login"))
-            ->with("success","user created successfully");
-        }
-        return redirect(route(name:"register"))
-        ->with("error","Failed to create an account");
 
+        // Hash password sebelum disimpan
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password); // Enkripsi password dengan Hash::make()
+
+        if ($user->save()) {
+            return redirect(route('login'))
+                ->with("success", "User created successfully");
+        }
+
+        return redirect(route('register'))
+            ->with("error", "Failed to create an account");
     }
-    
 }

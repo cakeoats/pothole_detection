@@ -17,10 +17,10 @@
         <div class="main">
             <nav class="navbar navbar-expand px-4 py-3 bg-white shadow-sm">
                 <div class="d-flex align-items-center w-100">
-                    <h3 class="fw-bold mb-0">Dashboard Visual AI Pothole Detection</h3>
+                    <h3 class="fw-bold mb-0">Dashboard Visual Pothole Reporting</h3>
                     <div class="ms-auto">
                         <span class="navbar-text me-3 fw-bold">Hello, {{ session('user')['username'] }}</span>
-                        <img src="{{ asset('img/logo.png') }}" alt="My Image" style="width: 50px; height: auto;">
+                        <!-- <img src="{{ asset('img/logo.png') }}" alt="My Image" style="width: 50px; height: auto;"> -->
                     </div>
                 </div>
             </nav>

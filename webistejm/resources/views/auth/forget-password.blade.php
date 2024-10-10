@@ -9,8 +9,8 @@
 <body>
     <nav class="judul">
         <div class="navbar-brand">
-            <img src="{{ asset('img/logojsmr.png') }}" alt="Logo">
-            <h1>Dashboard Visual AI Pothole Detection</h1>
+        
+            <h1>Dashboard Visual Pothole Reporting</h1>
         </div>
     </nav>
     <div class="container">
@@ -30,7 +30,7 @@
         </div>
         <div class="right">
             <div class="image-container">
-                <img src="{{ asset('img/login.jpg') }}" alt="Login Image">
+                <img src="{{ asset('img/loginn.jpg') }}" alt="Login Image">
             </div>
         </div>
     </div>

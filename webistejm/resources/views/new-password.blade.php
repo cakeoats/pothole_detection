@@ -27,7 +27,7 @@
                 <button>Send an Email</button>
             </form>
             <div class="right">
-            <img src="{{ asset('img/login.jpg') }}" alt="">
+            <img src="{{ asset('img/loginn.jpg') }}" alt="">
         </div>
         </div>
     </div>
